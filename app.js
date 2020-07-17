@@ -14,11 +14,22 @@ app.get("/", function(req, res){
     var day = "";
 
     //what day of the week is it?
-    if (currentDay === 6 || currentDay === 0) {
-        day = "Weekend";
-    } else {
-        day = "Weekday!"
+    if (currentDay === 0) {
+        day = "Sunday"
+    } else if (currentDay === 1) {
+        day = "Monday"
+    } else if (currentDay === 2) {
+        day = "Tuesday"
+    } else if (currentDay === 3) {
+        day = "Wednesday"
+    } else if (currentDay === 4) {
+        day = "Thursday"
+    } else if (currentDay === 5) {
+        day = "Friday"
+    } else if (currentDay === 6) {
+        day = "Saturday"
     }
+
     //sned day of week to list.ejs
     res.render("list", {kindOfDay: day});
 });
