@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use("view engine", "ejs");
+app.set("view engine", "ejs");
 
 app.get("/", function(req, res){
 
@@ -13,14 +13,14 @@ app.get("/", function(req, res){
     var currentDay = today.getDay();
     var day = "";
 
+    //what day of the week is it?
     if (currentDay === 6 || currentDay === 0) {
         day = "Weekend";
-        res.render("list", {kindOfDay: day});
     } else {
         day = "Weekday!"
-        res.render("list", {kindOfDay: day});
     }
-
+    //sned day of week to list.ejs
+    res.render("list", {kindOfDay: day});
 });
 
 
