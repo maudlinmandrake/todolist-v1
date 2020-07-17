@@ -20,7 +20,7 @@ app.get("/", function (req, res) {
 
     var day = today.toLocaleDateString("en-US", options);
 
-    //sned day of week to list.ejs
+    //send day of week to list.ejs
     res.render("list", {
         kindOfDay: day
     });
