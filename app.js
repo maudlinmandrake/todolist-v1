@@ -11,11 +11,14 @@ app.get("/", function(req, res){
 
     var today = new Date();
     var currentDay = today.getDay();
+    var day = "";
 
     if (currentDay === 6 || currentDay === 0) {
-        res.send("Yay it's the weekend!");
+        day = "Weekend";
+        res.render("list", {kindOfDay: day});
     } else {
-        res.send("Boo! I have to work");
+        day = "Weekday!"
+        res.render("list", {kindOfDay: day});
     }
 
 });
