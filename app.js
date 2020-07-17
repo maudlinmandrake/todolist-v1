@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-var item = "";
+var items = [];
+
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.set("view engine", "ejs");
@@ -24,12 +25,13 @@ app.get("/", function (req, res) {
     //send day of week to list.ejs
     res.render("list", {
         kindOfDay: day,
-        newListItem: item
+        newListItem: items
     });
 });
 
 app.post("/", function(req, res){
-    item = req.body.newItem
+    var item = req.body.newItem;
+    items.push(item);
     res.redirect("/");
 });
 
