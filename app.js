@@ -22,13 +22,14 @@ app.get("/", function (req, res) {
 
     //send day of week to list.ejs
     res.render("list", {
-        kindOfDay: day
+        kindOfDay: day,
+        newListItem: item
     });
 });
 
 app.post("/", function(req, res){
-    var newItem = req.body.newItem
-    res.send(newItem);
+    var item = req.body.newItem
+    res.redirect("/");
 });
 
 app.listen(3000, function () {
