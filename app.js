@@ -25,7 +25,7 @@ app.get("/", function (req, res) {
 
     //send day of week to list.ejs
     res.render("list", {
-        kindOfDay: day,
+        listTitle: day,
         newListItems: items
     });
 });
