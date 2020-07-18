@@ -8,6 +8,7 @@ const app = express();
 let items = ["Buy food", "Get recipe", "Cook food", "Eat food"];
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
