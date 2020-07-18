@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 let items = ["Buy food", "Get recipe", "Cook food", "Eat food"];
+let workItems = [];
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -30,10 +31,23 @@ app.get("/", function (req, res) {
     });
 });
 
+app.get("/work", function(req, res) {
+    res.render("list", {
+        listTitle: "Work List", 
+        newListItems: workItems})
+});
+
 app.post("/", function(req, res){
     let item = req.body.newItem;
     items.push(item);
     res.redirect("/");
+});
+
+//post new item to list and redirect to work route
+app.post("/work", function(){
+    let item = req.body.newItem;
+    workItems.push(item);
+    res.redirect("/work");
 });
 
 app.listen(3000, function () {
