@@ -52,12 +52,16 @@ app.post("/", function(req, res){
 });
 
 //post new item to list and redirect to work route
-app.post("/work", function(){
+app.get("/work", function(){
     let item = req.body.newItem;
     workItems.push(item);
     res.redirect("/work");
 });
 
-app.listen(3000, function () {
+app.get("/about", function(req, res){
+    res.render("about");
+})
+
+app.listen(3000, function() {
     console.log("Server started on port 3000");
 });
