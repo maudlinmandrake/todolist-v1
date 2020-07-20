@@ -16,14 +16,7 @@ app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
 
-    // let today = new Date();
-    // let options = {
-    //     weekday: "long",
-    //     day: "numeric",
-    //     month: "long"
-    // };
-
-    // let day = today.toLocaleDateString("en-US", options);
+    let day = date();
 
     //send day of week to list.ejs
     res.render("list", {
