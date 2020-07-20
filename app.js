@@ -16,7 +16,7 @@ app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
 
-    let day = date();
+    let day = date.getDate();
 
     //send day of week to list.ejs
     res.render("list", {
