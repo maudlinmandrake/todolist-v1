@@ -28,7 +28,7 @@ app.get("/", function (req, res) {
 app.get("/work", function(req, res) {
     res.render("list", {
         listTitle: "Work List", 
-        newListItems: workItems})
+        newListItems: workItems});
 });
 
 app.post("/", function(req, res){
@@ -54,7 +54,7 @@ app.get("/work", function(){
 
 app.get("/about", function(req, res){
     res.render("about");
-})
+});
 
 app.listen(3000, function() {
     console.log("Server started on port 3000");
